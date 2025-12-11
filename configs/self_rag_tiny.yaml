@@ -1,0 +1,36 @@
+# Self-RAG Tiny Config (~5M params)
+# For quick validation and testing
+
+# Model dimensions
+d_model: 192
+n_heads: 4
+n_layers: 4
+d_ff: 384
+vocab_size: 4096
+max_seq_len: 256
+
+# Memory configuration
+max_chunks: 1000
+chunk_size: 32
+chunk_overlap: 8
+top_k: 3
+
+# Retrieval settings
+retrieval_method: cosine
+embed_pooling: mean
+normalize_embeddings: true
+
+# Special tokens
+memory_token: "[MEM]"
+sep_token: "[SEP]"
+
+# Training settings
+memory_dropout: 0.1
+retrieval_loss_weight: 0.0
+
+# Regularization
+dropout: 0.1
+attention_dropout: 0.1
+
+# Initialization
+init_std: 0.02

@@ -1,0 +1,34 @@
+# Medium Memory Transformer for A100 Training
+# ~180M parameters - Main experiment configuration
+
+# Model dimensions
+d_model: 512
+n_heads: 8
+n_layers: 12
+d_ff: 2048
+
+# Vocabulary and sequence
+vocab_size: 32000  # BPE tokenizer
+max_seq_len: 1024
+
+# Memory parameters
+snapshot_interval: 4
+memory_size: 256   # 256 memory slots
+d_memory: 512      # Full snapshot dimension
+d_compressed: 128  # 4x compression
+n_retrieval_hops: 2
+
+# Memory variant
+use_compressed: false
+use_both: true     # Use hybrid for best results
+
+# Regularization
+dropout: 0.1
+attention_dropout: 0.1
+memory_dropout: 0.05
+
+# Training (disabled - handled by training config)
+gradient_checkpointing: false
+
+# Initialization
+init_std: 0.02

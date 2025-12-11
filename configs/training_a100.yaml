@@ -1,0 +1,43 @@
+# Training configuration optimized for A100 GPU
+# Adjust batch_size based on model size
+
+# Batch settings (for Medium 180M model)
+batch_size: 32
+gradient_accumulation_steps: 4  # Effective batch = 128
+
+# Learning rate
+learning_rate: 1e-4
+min_learning_rate: 1e-6
+warmup_steps: 1000
+max_steps: 100000
+
+# Loss weights
+lm_loss_weight: 1.0
+memory_usage_loss_weight: 0.01
+retrieval_loss_weight: 0.1
+
+# Optimization
+weight_decay: 0.01
+max_grad_norm: 1.0
+beta1: 0.9
+beta2: 0.95
+
+# Checkpointing
+save_every: 1000
+eval_every: 500
+log_every: 50
+
+# Curriculum learning
+curriculum_enabled: true
+stage_thresholds:
+  copy: 0.90
+  recall: 0.85
+  arithmetic: 0.80
+
+# Mixed precision (A100 supports bf16)
+use_amp: true
+amp_dtype: bfloat16
+
+# Data loading
+num_workers: 4
+prefetch_factor: 2
