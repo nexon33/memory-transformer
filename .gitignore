@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Checkpoints and model weights
+*.pt
+*.pth
+checkpoints/
+swarm_checkpoints/
+swarm_checkpoints_parallel/
+swarm_test/
+
+# Temporary files
+temp/
+*.tmp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Environment
+.env
+venv/

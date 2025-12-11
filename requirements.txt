@@ -1,0 +1,7 @@
+# For Termux, install pytorch via:
+#   pkg install python-torch
+#
+# Then install these with pip:
+pyyaml>=6.0
+tqdm>=4.65.0
+# numpy is already installed via pkg

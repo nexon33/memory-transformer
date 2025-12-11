@@ -1,0 +1,34 @@
+# Tiny Memory Transformer with Compressed Snapshots
+# ~5M parameters, optimized for mobile training
+
+# Model dimensions
+d_model: 192
+n_heads: 4
+n_layers: 4
+d_ff: 384
+
+# Vocabulary and sequence
+vocab_size: 4096
+max_seq_len: 256
+
+# Memory parameters
+snapshot_interval: 4
+memory_size: 64
+d_memory: 48  # Compressed dimension
+d_compressed: 48
+n_retrieval_hops: 2
+
+# Memory variant - compressed only
+use_compressed: true
+use_both: false
+
+# Regularization
+dropout: 0.1
+attention_dropout: 0.1
+memory_dropout: 0.05
+
+# Training
+gradient_checkpointing: true
+
+# Initialization
+init_std: 0.02
