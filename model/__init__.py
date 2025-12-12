@@ -10,6 +10,7 @@ from .memory_integration import MemoryIntegration
 from .self_rag_config import SelfRAGConfig, tiny_config, small_config, medium_config, large_config
 from .memory_store import MemoryStore
 from .self_rag import SelfRAGModel, BaseTransformer
+from .chunker import TextChunker, SentenceChunker, Chunk, chunk_text, chunk_with_tokenizer
 
 __all__ = [
     # Original architecture
@@ -28,4 +29,10 @@ __all__ = [
     "small_config",
     "medium_config",
     "large_config",
+    # Chunking
+    "TextChunker",
+    "SentenceChunker",
+    "Chunk",
+    "chunk_text",
+    "chunk_with_tokenizer",
 ]

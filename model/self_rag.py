@@ -354,11 +354,16 @@ class SelfRAGModel(nn.Module):
             original = input_ids[b].tolist()
             combined = prefix_ids + original
 
-            # Truncate if too long
+            # Truncate if too long - keep end of original (most recent context)
             if len(combined) > self.config.max_seq_len:
-                # Keep prefix and truncate original
+                # Limit prefix to half of max_seq_len
+                max_prefix = self.config.max_seq_len // 2
+                if len(prefix_ids) > max_prefix:
+                    prefix_ids = prefix_ids[:max_prefix]
                 max_original = self.config.max_seq_len - len(prefix_ids)
-                combined = prefix_ids + original[:max_original]
+                # Keep end of original (most relevant for generation)
+                original = original[-max_original:] if max_original > 0 else []
+                combined = prefix_ids + original
 
             augmented_ids.append(combined)
 
